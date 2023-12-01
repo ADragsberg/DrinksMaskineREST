@@ -55,6 +55,41 @@
 
         public void Validate()
         {
+            ValidateId();
+            ValidateName();
+            ValidateCategory();
+            ValidateAlcoholic();
+            ValidateIngredient();
+            ValidateMeasure();
+        }
+
+        public void ValidateId()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ValidateName()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ValidateCategory()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ValidateAlcoholic()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ValidateIngredient()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ValidateMeasure()
+        {
             throw new NotImplementedException();
         }
 
