@@ -61,8 +61,8 @@ namespace DrinksMaskineREST.Models
             ValidateName();
             ValidateCategory();
             ValidateAlcoholic();
-            ValidateIngredient();
-            ValidateMeasure();
+            ValidateIngredient1();
+            ValidateMeasure1();
         }
 
         public void ValidateId()
@@ -99,20 +99,53 @@ namespace DrinksMaskineREST.Models
 
         public void ValidateCategory()
         {
-            throw new NotImplementedException();
+            if (strCategory == null)
+                throw new Exception("strCategory is null");
+
+            if (strCategory.Length <= 1)
+                throw new Exception("strCategory is less than 1 character");
+
+            if (strCategory.Length > 64)
+                throw new Exception("strCategory is more than 64 characters");
+
+            if (strCategory.Trim().Length < 1)
+                throw new Exception("strCategory is less than 1 character");
+
+            if (strCategory.Trim().Length > 64)
+                throw new Exception("strCategory is more than 64 characters");
+
+            if (int.TryParse(strCategory, out int id))
+                throw new Exception("strCategory is a number");
         }
 
         public void ValidateAlcoholic()
         {
-            throw new NotImplementedException();
+            if (strAlcoholic == null)
+                throw new Exception("strAlcoholic is null");
+
+            if (strAlcoholic.ToLower() != "alcoholic" && strAlcoholic.ToLower() != "non alcoholic")
+                throw new Exception("strAlcoholic is not 'alcoholic' or 'non alcoholic'");
         }
 
-        public void ValidateIngredient()
+        public void ValidateIngredient1()
         {
-            throw new NotImplementedException();
+            if (strIngredient1 == null)
+                throw new Exception("strIngredient1 is null");
+
+            if (strIngredient1.Length <= 1)
+                throw new Exception("strIngredient1 is less than 1 character");
+
+            if (strIngredient1.Length > 64)
+                throw new Exception("strIngredient1 is more than 64 characters");
+
+            if (strIngredient1.Trim().Length < 1)
+                throw new Exception("strIngredient1 is less than 1 character");
+
+            if (strIngredient1.Trim().Length > 64)
+                throw new Exception("strIngredient1 is more than 64 characters");
         }
 
-        public void ValidateMeasure()
+        public void ValidateMeasure1()
         {
             throw new NotImplementedException();
         }

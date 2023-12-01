@@ -55,6 +55,91 @@ namespace DrinksMaskineREST.Models.Tests
 
             drink.strDrink = "qqqqq wwwww eeeee rrrrr ttttt yyyyy uuuuu iiiii ppppp aaaaa sssss"; // 65 chars
             Assert.ThrowsException<Exception>(() => drink.ValidateName());
+
+            drink.strDrink = "Black Russian";
+            drink.ValidateName();
         }
+
+        [TestMethod()]
+        public void CategoryTest()
+        {
+            DrinkAPIModel drink = new DrinkAPIModel();
+            drink.strCategory = "1";
+            Assert.ThrowsException<Exception>(() => drink.ValidateCategory());
+
+            drink.strCategory = "a";
+            Assert.ThrowsException<Exception>(() => drink.ValidateCategory());
+
+            drink.strCategory = "";
+            Assert.ThrowsException<Exception>(() => drink.ValidateCategory());
+
+            drink.strCategory = null;
+            Assert.ThrowsException<Exception>(() => drink.ValidateCategory());
+
+            drink.strCategory = " ";
+            Assert.ThrowsException<Exception>(() => drink.ValidateCategory());
+
+            drink.strCategory = "qqqqq wwwww eeeee rrrrr ttttt yyyyy uuuuu iiiii ppppp aaaaa sssss"; // 65 chars
+            Assert.ThrowsException<Exception>(() => drink.ValidateCategory());
+
+            drink.strCategory = "Ordinary Drink";
+            drink.ValidateCategory();
+        }
+
+        [TestMethod()]
+        public void AlcoholicTest()
+        {
+            DrinkAPIModel drink = new DrinkAPIModel();
+            drink.strAlcoholic = "1";
+            Assert.ThrowsException<Exception>(() => drink.ValidateAlcoholic());
+
+            drink.strAlcoholic = "a";
+            Assert.ThrowsException<Exception>(() => drink.ValidateAlcoholic());
+
+            drink.strAlcoholic = "";
+            Assert.ThrowsException<Exception>(() => drink.ValidateAlcoholic());
+
+            drink.strAlcoholic = null;
+            Assert.ThrowsException<Exception>(() => drink.ValidateAlcoholic());
+
+            drink.strAlcoholic = " ";
+            Assert.ThrowsException<Exception>(() => drink.ValidateAlcoholic());
+
+            drink.strAlcoholic = "qqqqq wwwww eeeee rrrrr ttttt yyyyy uuuuu iiiii ppppp aaaaa sssss"; // 65 chars
+            Assert.ThrowsException<Exception>(() => drink.ValidateAlcoholic());
+
+            drink.strAlcoholic = "Alcoholic";
+            drink.ValidateAlcoholic();
+
+            drink.strAlcoholic = "Non alcoholic";
+            drink.ValidateAlcoholic();
+        }
+
+        [TestMethod()]
+        public void Ingredient1Test()
+        {
+            DrinkAPIModel drink = new DrinkAPIModel();
+            drink.strIngredient1 = "1";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+
+            drink.strIngredient1 = "a";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+
+            drink.strIngredient1 = "";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+
+            drink.strIngredient1 = null;
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+
+            drink.strIngredient1 = " ";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+
+            drink.strIngredient1 = "qqqqq wwwww eeeee rrrrr ttttt yyyyy uuuuu iiiii ppppp aaaaa sssss"; // 65 chars
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+
+            drink.strIngredient1 = "Vodka";
+            drink.ValidateIngredient1();
+        }
+   
     }
 }
