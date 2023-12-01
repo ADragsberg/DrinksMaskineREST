@@ -2,6 +2,7 @@
 {
     public class DrinkAPIModel
     {
+
         public string idDrink { get; set; }
         public string strDrink { get; set; }
         public string? strTags { get; set; }

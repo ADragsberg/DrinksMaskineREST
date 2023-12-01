@@ -4,6 +4,6 @@ namespace DrinksMaskineREST.Repos
 {
     public interface IDrinkRepository
     {
-        Drink Add();
+        DrinkAPIModel Add(DrinkAPIModel drink);
     }
 }

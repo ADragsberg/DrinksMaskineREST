@@ -5,17 +5,30 @@ namespace DrinksMaskineREST.Repos
 {
     public class DrinkRepository : IDrinkRepository
     {
-        private Dictionary<int, Drink> _drinks;
+        private Dictionary<string, DrinkAPIModel> _drinks = new Dictionary<string, DrinkAPIModel>();
+        private int _count;
         public DrinkRepository() 
         {
 
             // hardcoded data
-            _drinks = new Dictionary<int, Drink>();
+
         }
 
-        public Drink Add()
+
+
+        public DrinkAPIModel Add(DrinkAPIModel drink)
         {
-            throw new NotImplementedException();
+            drink.Validate();
+            drink.idDrink = NextId();
+            _drinks.Add(drink.idDrink, drink);
+            return drink;
+        }
+
+        private string NextId()
+        {
+            string nextId = _count.ToString(); 
+            _count++;
+            return nextId;
         }
     }
 }
