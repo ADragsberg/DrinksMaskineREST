@@ -1,4 +1,6 @@
-﻿namespace DrinksMaskineREST.Models
+﻿using System.Runtime.InteropServices;
+
+namespace DrinksMaskineREST.Models
 {
     public class DrinkAPIModel
     {
@@ -65,12 +67,34 @@
 
         public void ValidateId()
         {
-            throw new NotImplementedException();
+            if (idDrink == null)
+                throw new Exception("idDrink is null");
+
+            if (int.TryParse(idDrink, out int id))
+            {
+                if (id <= 0)
+                    throw new Exception("idDrink is less than or equal to 0");
+            }
+            else
+                throw new Exception("idDrink is not a number");
         }
 
         public void ValidateName()
         {
-            throw new NotImplementedException();
+            if (strDrink == null)
+                throw new Exception("strDrink is null");
+
+            if (strDrink.Length < 1)
+                throw new Exception("strDrink is less than 1 character");
+
+            if (strDrink.Length > 64)
+                throw new Exception("strDrink is more than 64 characters");
+
+            if (strDrink.Trim().Length < 1)
+                throw new Exception("strDrink is less than 1 character");
+
+            if (strDrink.Trim().Length > 64)
+                throw new Exception("strDrink is more than 64 characters");
         }
 
         public void ValidateCategory()
