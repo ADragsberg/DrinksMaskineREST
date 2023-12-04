@@ -11,11 +11,6 @@ namespace DrinksMaskineREST.Models.Tests
     [TestClass()]
     public class DrinkAPIModelTests
     {
-        [TestMethod()]
-        public void DrinkAPIModelTest()
-        {
-            Assert.Fail();
-        }
 
         [TestMethod()]
         public void IdTest()
@@ -120,25 +115,32 @@ namespace DrinksMaskineREST.Models.Tests
         {
             DrinkAPIModel drink = new DrinkAPIModel();
             drink.strIngredient1 = "1";
-            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+            drink.strIngredient2 = "2";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredients());
 
             drink.strIngredient1 = "a";
-            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+            drink.strIngredient2 = "b";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredients());
 
             drink.strIngredient1 = "";
-            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+            drink.strIngredient2 = "";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredients());
 
             drink.strIngredient1 = null;
-            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+            drink.strIngredient2 = null;
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredients());
 
             drink.strIngredient1 = " ";
-            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+            drink.strIngredient2 = " ";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredients());
 
             drink.strIngredient1 = "qqqqq wwwww eeeee rrrrr ttttt yyyyy uuuuu iiiii ppppp aaaaa sssss"; // 65 chars
-            Assert.ThrowsException<Exception>(() => drink.ValidateIngredient1());
+            drink.strIngredient2 = "qqqqq wwwww eeeee rrrrr ttttt yyyyy uuuuu iiiii ppppp aaaaa sssss";
+            Assert.ThrowsException<Exception>(() => drink.ValidateIngredients());
 
             drink.strIngredient1 = "Vodka";
-            drink.ValidateIngredient1();
+            drink.strIngredient2 = "Whisky";
+            drink.ValidateIngredients();
         }
    
     }

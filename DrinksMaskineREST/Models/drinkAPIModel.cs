@@ -4,7 +4,7 @@ namespace DrinksMaskineREST.Models
 {
     public class DrinkAPIModel
     {
-
+        #region Properties From cocktailAPI
         public string idDrink { get; set; }
         public string strDrink { get; set; }
         public string? strTags { get; set; }
@@ -16,7 +16,7 @@ namespace DrinksMaskineREST.Models
         public string? strInstructions { get; set; }
         public string? strDrinkThumb { get; set; }
         public string strIngredient1 { get; set; }
-        public string? strIngredient2 { get; set; }
+        public string strIngredient2 { get; set; }
         public string? strIngredient3 { get; set; }
         public string? strIngredient4 { get; set; }
         public string? strIngredient5 { get; set; }
@@ -49,6 +49,11 @@ namespace DrinksMaskineREST.Models
         public string? strImageAttribution { get; set; }
         public string? strCreativeCommonsConfirmed { get; set; }
         public string? dateModified { get; set; }
+        #endregion
+
+        #region Custom Properties
+        public string? Creator { get; set; }
+        #endregion
 
         public DrinkAPIModel()
         {
@@ -61,8 +66,7 @@ namespace DrinksMaskineREST.Models
             ValidateName();
             ValidateCategory();
             ValidateAlcoholic();
-            ValidateIngredient1();
-            ValidateMeasure1();
+            ValidateIngredients();
         }
 
         public void ValidateId()
@@ -127,22 +131,22 @@ namespace DrinksMaskineREST.Models
                 throw new Exception("strAlcoholic is not 'alcoholic' or 'non alcoholic'");
         }
 
-        public void ValidateIngredient1()
+        public void ValidateIngredients()
         {
-            if (strIngredient1 == null)
-                throw new Exception("strIngredient1 is null");
+            if (strIngredient1 == null || strIngredient2 == null)
+                throw new Exception("strIngredient is null");
 
-            if (strIngredient1.Length <= 1)
-                throw new Exception("strIngredient1 is less than 1 character");
+            if (strIngredient1.Length <= 1 || strIngredient2.Length <= 1)
+                throw new Exception("strIngredient is less than 1 character");
 
-            if (strIngredient1.Length > 64)
-                throw new Exception("strIngredient1 is more than 64 characters");
+            if (strIngredient1.Length > 64 || strIngredient2.Length > 64)
+                throw new Exception("strIngredient is more than 64 characters");
 
-            if (strIngredient1.Trim().Length < 1)
-                throw new Exception("strIngredient1 is less than 1 character");
+            if (strIngredient1.Trim().Length < 1 || strIngredient2.Trim().Length < 1)
+                throw new Exception("strIngredient is less than 1 character");
 
-            if (strIngredient1.Trim().Length > 64)
-                throw new Exception("strIngredient1 is more than 64 characters");
+            if (strIngredient1.Trim().Length > 64 || strIngredient2.Trim().Length > 64)
+                throw new Exception("strIngredient is more than 64 characters");
         }
 
         public void ValidateMeasure1()

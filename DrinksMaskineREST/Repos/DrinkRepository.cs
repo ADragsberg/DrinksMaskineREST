@@ -6,7 +6,7 @@ namespace DrinksMaskineREST.Repos
     public class DrinkRepository : IDrinkRepository
     {
         private Dictionary<string, DrinkAPIModel> _drinks = new Dictionary<string, DrinkAPIModel>();
-        private int _count;
+        private int _count = 1;
         public DrinkRepository() 
         {
 
