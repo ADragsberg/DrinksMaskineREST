@@ -5,7 +5,7 @@ namespace DrinksMaskineREST.Models
     public class DrinkAPIModel
     {
         #region Properties From cocktailAPI
-        public string idDrink { get; set; }
+        public string? idDrink { get; set; } //Id til at hente på cocktail API. Se nedenunder for vores eget id
         public string strDrink { get; set; }
         public string? strTags { get; set; }
         public string? strVideo { get; set; }
@@ -21,37 +21,17 @@ namespace DrinksMaskineREST.Models
         public string? strIngredient4 { get; set; }
         public string? strIngredient5 { get; set; }
         public string? strIngredient6 { get; set; }
-        public string? strIngredient7 { get; set; }
-        public string? strIngredient8 { get; set; }
-        public string? strIngredient9 { get; set; }
-        public string? strIngredient10 { get; set; }
-        public string? strIngredient11 { get; set; }
-        public string? strIngredient12 { get; set; }
-        public string? strIngredient13 { get; set; }
-        public string? strIngredient14 { get; set; }
-        public string? strIngredient15 { get; set; }
         public string strMeasure1 { get; set; }
         public string? strMeasure2 { get; set; }
         public string? strMeasure3 { get; set; }
         public string? strMeasure4 { get; set; }
         public string? strMeasure5 { get; set; }
         public string? strMeasure6 { get; set; }
-        public string? strMeasure7 { get; set; }
-        public string? strMeasure8 { get; set; }
-        public string? strMeasure9 { get; set; }
-        public string? strMeasure10 { get; set; }
-        public string? strMeasure11 { get; set; }
-        public string? strMeasure12 { get; set; }
-        public string? strMeasure13 { get; set; }
-        public string? strMeasure14 { get; set; }
-        public string? strMeasure15 { get; set; }
         public string? strImageSource { get; set; }
-        public string? strImageAttribution { get; set; }
-        public string? strCreativeCommonsConfirmed { get; set; }
-        public string? dateModified { get; set; }
         #endregion
 
         #region Custom Properties
+        public int Id { get; set; } // Vores eget id
         public string? Creator { get; set; }
         #endregion
 
