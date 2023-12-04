@@ -1,5 +1,6 @@
 using DrinksMaskineREST.Repos;
 using Microsoft.EntityFrameworkCore;
+using Secret;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ if (useSql)
     // Set up a new DbContextOptionsBuilder with the connection string from Secrets.
     var optionsBuilder = new DbContextOptionsBuilder<DrinksDBContext>();
     //Replace connectionstring with simply
-    optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+    optionsBuilder.UseSqlServer(Secrets.ConnectionString);
 
     // Create a new instance of the CarCardsDbContext using the options from the builder.
     DrinksDBContext context = new DrinksDBContext(optionsBuilder.Options);
