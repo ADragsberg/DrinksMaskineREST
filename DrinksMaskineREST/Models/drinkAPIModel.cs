@@ -5,7 +5,7 @@ namespace DrinksMaskineREST.Models
     public class DrinkAPIModel
     {
         #region Properties From cocktailAPI
-        public string idDrink { get; set; }
+        public string? idDrink { get; set; } //Id til at hente på cocktail API. Se nedenunder for vores eget id
         public string strDrink { get; set; }
         public string? strTags { get; set; }
         public string? strVideo { get; set; }
@@ -52,6 +52,7 @@ namespace DrinksMaskineREST.Models
         #endregion
 
         #region Custom Properties
+        public int Id { get; set; } // Vores eget id
         public string? Creator { get; set; }
         #endregion
 
