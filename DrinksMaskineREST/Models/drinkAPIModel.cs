@@ -67,6 +67,7 @@ namespace DrinksMaskineREST.Models
             ValidateCategory();
             ValidateAlcoholic();
             ValidateIngredients();
+            ValidateCreator();
         }
 
         public void ValidateId()
@@ -149,9 +150,10 @@ namespace DrinksMaskineREST.Models
                 throw new Exception("strIngredient is more than 64 characters");
         }
 
-        public void ValidateMeasure1()
+        public void ValidateCreator()
         {
-            throw new NotImplementedException();
+            if (strDrink.Trim().Length > 64)
+                throw new Exception("strDrink is more than 64 characters");
         }
 
     }
