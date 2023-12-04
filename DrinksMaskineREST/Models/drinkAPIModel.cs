@@ -46,9 +46,6 @@ namespace DrinksMaskineREST.Models
         public string? strMeasure14 { get; set; }
         public string? strMeasure15 { get; set; }
         public string? strImageSource { get; set; }
-        public string? strImageAttribution { get; set; }
-        public string? strCreativeCommonsConfirmed { get; set; }
-        public string? dateModified { get; set; }
         #endregion
 
         #region Custom Properties
