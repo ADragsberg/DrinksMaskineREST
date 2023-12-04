@@ -56,6 +56,16 @@ namespace DrinksMaskineREST.Models.Tests
         }
 
         [TestMethod()]
+        public void DrinkNameCreatorTest()
+        {
+            DrinkAPIModel drink = new DrinkAPIModel();
+
+            drink.strDrink = "qqqqq wwwww eeeee rrrrr ttttt yyyyy uuuuu iiiii ppppp aaaaa sssss"; // 65 chars
+            Assert.ThrowsException<Exception>(() => drink.ValidateCreator());
+        }
+
+
+        [TestMethod()]
         public void CategoryTest()
         {
             DrinkAPIModel drink = new DrinkAPIModel();
