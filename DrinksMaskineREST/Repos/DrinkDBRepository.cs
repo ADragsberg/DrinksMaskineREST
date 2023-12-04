@@ -1,5 +1,4 @@
 ﻿using DrinksMaskineREST.Models;
-using DrinksMaskineREST.Models.NotInUse;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrinksMaskineREST.Repos
