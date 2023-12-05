@@ -31,6 +31,19 @@ namespace DrinksMaskineREST.Repos
 
         }
 
+
+        public void Delete(DrinkModel drink)
+        {
+            if (_drinks.ContainsKey(drink.Id))
+            {
+                _drinks.Remove(drink.Id);
+            }
+            else
+            {
+                throw new ArgumentException($"Drinken er ikke fundet");
+            }
+        }
+
         private int NextId()
         {
             return _count > 0 ? GetAll().Select(x => x.Id).Max() + 1 : 1;
