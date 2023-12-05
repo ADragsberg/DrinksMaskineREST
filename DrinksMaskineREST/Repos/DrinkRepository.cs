@@ -44,10 +44,10 @@ namespace DrinksMaskineREST.Repos
             }
         }
 
-        public DrinkModel Update(DrinkModel newDrink)
+        public bool Update(int id, DrinkModel newDrink)
         {
 
-            return newDrink;
+            return true;
         }
 
         private int NextId()

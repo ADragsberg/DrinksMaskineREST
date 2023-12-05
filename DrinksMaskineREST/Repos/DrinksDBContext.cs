@@ -10,6 +10,11 @@ namespace DrinksMaskineREST.Repos
             
         }
 
+        public DrinksDBContext()
+        {
+            
+        }
+
         public DbSet<DrinkModel> DrinkModels { get; set; }
     }
 }

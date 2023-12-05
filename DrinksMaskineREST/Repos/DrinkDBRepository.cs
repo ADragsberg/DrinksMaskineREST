@@ -19,15 +19,14 @@ namespace DrinksMaskineREST.Repos
             return drink;
         }
 
-        public DrinkModel Update(DrinkModel newDrink)
+        public bool Update(int id, DrinkModel newDrink)
         {
             newDrink.Validate();
-            
-            DrinkModel drink = _drinkDbContext.Find<DrinkModel>(newDrink.Id);
 
+            DrinkModel drink = _drinkDbContext.Set<DrinkModel>().Find(id);
             if (drink == null)
             {
-                throw new ArgumentException($"Drinken med id {newDrink.Id} findes ikke");
+                return false;
             }
 
             drink.strDrink = newDrink.strDrink;
@@ -50,7 +49,7 @@ namespace DrinksMaskineREST.Repos
             drink.strImageSource = newDrink.strImageSource;
             drink.Creator = newDrink.Creator;
             _drinkDbContext.SaveChanges();
-            return drink;
+            return true;
         }
     }
 }
