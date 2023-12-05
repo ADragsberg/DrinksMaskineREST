@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DrinksMaskineREST.Controllers
 {
-    public class DrinkModelController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DrinkModelController : ControllerBase
     {
         private IDrinkRepository _drinkRepo;
 
@@ -13,6 +15,8 @@ namespace DrinksMaskineREST.Controllers
             _drinkRepo = drinkRepo;
         }
         [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<DrinkModel> Post([FromBody] DrinkModel drink)
         {
             try
