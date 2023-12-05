@@ -52,8 +52,8 @@ namespace DrinksMaskineREST.Models
 
         public void ValidateId()
         {
-            if (idDrink == null)
-                throw new Exception("idDrink is null");
+            //if (idDrink == null)
+            //    throw new Exception("idDrink is null");
 
             if (int.TryParse(idDrink, out int id))
             {
