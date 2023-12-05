@@ -31,20 +31,19 @@ namespace DrinksMaskineREST.Repos
 
         }
 
-        //Virker ikke. Skal fixes
+        public bool Delete(DrinkModel drink)
+        {
 
-        //public void Delete(DrinkModel drink)
-        //{
-            
-        //    if (_drinks.ContainsKey(drink.Id))
-        //    {
-        //        _drinks.Remove(drink.Id);
-        //    }
-        //    else
-        //    {
-        //        throw new ArgumentException($"Drinken er ikke fundet");
-        //    }
-        //}
+            if (_drinks.ContainsKey(drink.Id))
+            {
+                _drinks.Remove(drink.Id);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         private int NextId()
         {
