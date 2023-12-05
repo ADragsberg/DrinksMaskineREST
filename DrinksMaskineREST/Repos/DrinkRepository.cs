@@ -5,7 +5,7 @@ namespace DrinksMaskineREST.Repos
 {
     public class DrinkRepository : IDrinkRepository
     {
-        private Dictionary<int, DrinkAPIModel> _drinks = new Dictionary<int, DrinkAPIModel>();
+        private Dictionary<int, DrinkModel> _drinks = new Dictionary<int, DrinkModel>();
         private int _count = 1;
         public DrinkRepository() 
         {
@@ -16,7 +16,7 @@ namespace DrinksMaskineREST.Repos
 
 
 
-        public DrinkAPIModel Add(DrinkAPIModel drink)
+        public DrinkModel Add(DrinkModel drink)
         {
             drink.Validate();
             drink.Id = NextId();
@@ -24,9 +24,9 @@ namespace DrinksMaskineREST.Repos
             return drink;
         }
 
-        public List<DrinkAPIModel> GetAll()
+        public List<DrinkModel> GetAll()
         {
-            List<DrinkAPIModel> result = new List<DrinkAPIModel>(_drinks.Values);
+            List<DrinkModel> result = new List<DrinkModel>(_drinks.Values);
             return result;
 
         }

@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace DrinksMaskineREST.Models.Tests
 {
     [TestClass()]
-    public class DrinkAPIModelTests
+    public class DrinkModelTests
     {
 
         [TestMethod()]
         public void IdTest()
         {
-            DrinkAPIModel drink = new DrinkAPIModel();
+            DrinkModel drink = new DrinkModel();
             drink.idDrink = "1";
             drink.ValidateId();
 
@@ -32,7 +32,7 @@ namespace DrinksMaskineREST.Models.Tests
         [TestMethod()]
         public void NameTest()
         {
-            DrinkAPIModel drink = new DrinkAPIModel();
+            DrinkModel drink = new DrinkModel();
             drink.strDrink = "1";
             drink.ValidateName();
 
@@ -58,7 +58,7 @@ namespace DrinksMaskineREST.Models.Tests
         [TestMethod()]
         public void DrinkNameCreatorTest()
         {
-            DrinkAPIModel drink = new DrinkAPIModel();
+            DrinkModel drink = new DrinkModel();
 
             drink.strDrink = "qqqqq wwwww eeeee rrrrr ttttt yyyyy uuuuu iiiii ppppp aaaaa sssss"; // 65 chars
             Assert.ThrowsException<Exception>(() => drink.ValidateCreator());
@@ -68,7 +68,7 @@ namespace DrinksMaskineREST.Models.Tests
         [TestMethod()]
         public void CategoryTest()
         {
-            DrinkAPIModel drink = new DrinkAPIModel();
+            DrinkModel drink = new DrinkModel();
             drink.strCategory = "1";
             Assert.ThrowsException<Exception>(() => drink.ValidateCategory());
 
@@ -94,7 +94,7 @@ namespace DrinksMaskineREST.Models.Tests
         [TestMethod()]
         public void AlcoholicTest()
         {
-            DrinkAPIModel drink = new DrinkAPIModel();
+            DrinkModel drink = new DrinkModel();
             drink.strAlcoholic = "1";
             Assert.ThrowsException<Exception>(() => drink.ValidateAlcoholic());
 
@@ -123,7 +123,7 @@ namespace DrinksMaskineREST.Models.Tests
         [TestMethod()]
         public void Ingredient1Test()
         {
-            DrinkAPIModel drink = new DrinkAPIModel();
+            DrinkModel drink = new DrinkModel();
             drink.strIngredient1 = "1";
             drink.strIngredient2 = "2";
             Assert.ThrowsException<Exception>(() => drink.ValidateIngredients());

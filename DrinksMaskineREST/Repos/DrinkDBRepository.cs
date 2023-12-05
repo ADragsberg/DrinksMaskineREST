@@ -11,7 +11,7 @@ namespace DrinksMaskineREST.Repos
             _drinkDbContext = dbContext;
         }
 
-        public DrinkAPIModel Add(DrinkAPIModel drink)
+        public DrinkModel Add(DrinkModel drink)
         {
             drink.Validate();
             _drinkDbContext.Add(drink);

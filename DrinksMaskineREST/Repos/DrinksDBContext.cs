@@ -9,6 +9,6 @@ namespace DrinksMaskineREST.Repos
         {          
         }
 
-        public DbSet<DrinkAPIModel> drinkAPIModels { get; set; }
+        public DbSet<DrinkModel> DrinkModels { get; set; }
     }
 }
