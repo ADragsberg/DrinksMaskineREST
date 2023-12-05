@@ -29,5 +29,29 @@ namespace DrinksMaskineREST.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<DrinkModel> Put(int id,[FromBody]DrinkModel drink)
+        {
+            try
+            {
+                
+                bool isUpdated =_drinkRepo.Update(id,drink);
+                if (isUpdated)
+                {
+                    return Ok(isUpdated);
+                }
+                else
+                {
+                    return BadRequest("Drinken blev ikke fundet");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
