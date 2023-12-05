@@ -44,6 +44,12 @@ namespace DrinksMaskineREST.Repos
             }
         }
 
+        public DrinkModel Update(DrinkModel newDrink)
+        {
+
+            return newDrink;
+        }
+
         private int NextId()
         {
             return _count > 0 ? GetAll().Select(x => x.Id).Max() + 1 : 1;
