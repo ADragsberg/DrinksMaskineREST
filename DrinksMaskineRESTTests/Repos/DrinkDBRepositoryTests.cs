@@ -106,7 +106,10 @@ namespace DrinksMaskineREST.Repos.Tests
         [TestMethod()]
         public void UpdateTest()
         {
-
+            DrinkModel drink1 = _repository.Add(_validMinDrink);
+            Assert.IsTrue(_repository.GetById(drink1.Id).strIngredient1 == _validMinDrink.strIngredient1);
+            _repository.Update(drink1.Id, _validMaxDrink);
+            Assert.AreEqual(_repository.GetById(drink1.Id).strDrink, _validMaxDrink.strDrink);
         }
 
     }
