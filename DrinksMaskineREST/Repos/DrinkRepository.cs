@@ -31,12 +31,12 @@ namespace DrinksMaskineREST.Repos
 
         }
 
-        public bool Delete(int id, DrinkModel drinkToDelete)
+        public bool Delete(int id)
         {
 
-            if (_drinks.ContainsKey(drinkToDelete.Id))
+            if (_drinks.ContainsKey(id))
             {
-                _drinks.Remove(drinkToDelete.Id);
+                _drinks.Remove(id);
                 return true;
             }
             else

@@ -48,7 +48,7 @@ namespace DrinksMaskineREST.Repos
             return true;
         }
 
-        public bool Delete(int id, DrinkModel drinkToDelete)
+        public bool Delete(int id)
         {
             
             DrinkModel drink = GetById(id);

@@ -103,7 +103,10 @@ namespace DrinksMaskineREST.Repos.Tests
         [TestMethod()]
         public void DeleteTest()
         {
-
+            DrinkModel drink1 = _repository.Add(_validMinDrink);
+            Assert.IsTrue(_repository.GetById(drink1.Id).strIngredient1 == _validMinDrink.strIngredient1);
+            Assert.IsTrue(_repository.Delete(drink1.Id));
+            Assert.ThrowsException<Exception>(() => _repository.GetById(drink1.Id));
         }
         
         [TestMethod()]

@@ -59,11 +59,11 @@ namespace DrinksMaskineREST.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult Delete(int id, [FromBody]DrinkModel drink)
+        public ActionResult Delete(int id)
         {
             try
             {
-                bool isDeleted = _drinkRepo.Delete(id, drink);
+                bool isDeleted = _drinkRepo.Delete(id);
                 if (isDeleted)
                 {
                     return Ok(isDeleted);
