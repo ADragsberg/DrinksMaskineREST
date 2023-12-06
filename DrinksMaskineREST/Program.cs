@@ -13,15 +13,15 @@ if (useSql)
     //Replace connectionstring with simply
     optionsBuilder.UseSqlServer(Secrets.ConnectionString);
 
-    // Create a new instance of the CarCardsDbContext using the options from the builder.
+    // Create a new instance of the DrinksDbContext using the options from the builder.
     DrinksDBContext context = new DrinksDBContext(optionsBuilder.Options);
 
-    // Add a singleton instance of the CarCardRepositoryDb to the container, using the context we just created.
+    // Add a singleton instance of the DrinksRepositoryDb to the container, using the context we just created.
     builder.Services.AddSingleton<IDrinkRepository>(new DrinkDBRepository(context));
 }
 else
 {
-    // Add a singleton instance of the CarCardRepositoryList to the container.
+    // Add a singleton instance of the DrinkRepositoryList to the container.
     builder.Services.AddSingleton<IDrinkRepository>(new DrinkRepository());
 }
 

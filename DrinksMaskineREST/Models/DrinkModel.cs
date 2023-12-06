@@ -54,14 +54,17 @@ namespace DrinksMaskineREST.Models
         {
             //if (idDrink == null)
             //    throw new Exception("idDrink is null");
-
-            if (int.TryParse(idDrink, out int id))
+            if (idDrink != null)
             {
-                if (id <= 0)
-                    throw new Exception("idDrink is less than or equal to 0");
+                if (int.TryParse(idDrink, out int id))
+                {
+                    if (id <= 0)
+                        throw new Exception("idDrink is less than or equal to 0");
+                }
+                else
+                    throw new Exception("idDrink is not a number");
             }
-            else
-                throw new Exception("idDrink is not a number");
+
         }
 
         public void ValidateName()
