@@ -22,7 +22,7 @@ namespace DrinksMaskineREST.Models
         public string? strIngredient5 { get; set; }
         public string? strIngredient6 { get; set; }
         public string strMeasure1 { get; set; }
-        public string? strMeasure2 { get; set; }
+        public string strMeasure2 { get; set; }
         public string? strMeasure3 { get; set; }
         public string? strMeasure4 { get; set; }
         public string? strMeasure5 { get; set; }
