@@ -22,5 +22,18 @@ namespace DrinksMaskineREST.Repos.Tests
         {
             Assert.Fail();
         }
+        
+        [TestMethod()]
+        public void DeleteTest()
+        {
+
+        }
+        
+        [TestMethod()]
+        public void UpdateTest()
+        {
+
+        }
+
     }
 }
