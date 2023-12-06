@@ -68,12 +68,6 @@ namespace DrinksMaskineREST.Repos.Tests
         }
 
         [TestMethod()]
-        public void DrinkDBRepositoryTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
         public void AddTest()
         {
             DrinkModel drink1 = _repository.Add(_validMinDrink);
