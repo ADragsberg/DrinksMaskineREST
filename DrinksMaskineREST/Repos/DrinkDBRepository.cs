@@ -23,11 +23,7 @@ namespace DrinksMaskineREST.Repos
         {
             newDrink.Validate();
 
-            DrinkModel drink = _drinkDbContext.Set<DrinkModel>().Find(id);
-            if (drink == null)
-            {
-                return false;
-            }
+            DrinkModel drink = GetById(id);
 
             drink.strDrink = newDrink.strDrink;
             drink.strCategory = newDrink.strCategory;
@@ -54,15 +50,28 @@ namespace DrinksMaskineREST.Repos
 
         public bool Delete(int id, DrinkModel drinkToDelete)
         {
-            DrinkModel drink = _drinkDbContext.Set<DrinkModel>().Find(id);
-            if (drink == null)
-            {
-                return false;
-            }
+            
+            DrinkModel drink = GetById(id);
+            
             _drinkDbContext.Remove(drink);
             _drinkDbContext.SaveChanges();
             return true;
             
+        }
+
+        public List<DrinkModel> GetAll()
+        {
+            List<DrinkModel> result = new List<DrinkModel>(_drinkDbContext.Set<DrinkModel>());
+            return result;
+
+        }
+
+        public DrinkModel GetById(int id)
+        {
+            DrinkModel? result = _drinkDbContext.Set<DrinkModel>().Find(id);
+            if (result == null)
+                throw new Exception("Drink not found in Database");
+            return result;
         }
     }
 }

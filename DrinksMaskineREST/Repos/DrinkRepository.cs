@@ -55,5 +55,10 @@ namespace DrinksMaskineREST.Repos
         {
             return _count > 0 ? GetAll().Select(x => x.Id).Max() + 1 : 1;
         }
+
+        public DrinkModel GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
