@@ -6,5 +6,7 @@ namespace DrinksMaskineREST.Repos
     {
         DrinkModel Add(DrinkModel drink);
         bool Update(int id, DrinkModel drink);
+
+        bool Delete(int id, DrinkModel drink);    
     }
 }

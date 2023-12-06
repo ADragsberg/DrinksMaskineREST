@@ -38,7 +38,7 @@ namespace DrinksMaskineREST.Controllers
             try
             {
                 
-                bool isUpdated =_drinkRepo.Update(id,drink);
+                bool isUpdated =_drinkRepo.Update(id, drink);
                 if (isUpdated)
                 {
                     return Ok(isUpdated);
@@ -46,6 +46,31 @@ namespace DrinksMaskineREST.Controllers
                 else
                 {
                     return BadRequest("Drinken blev ikke fundet");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult Delete(int id, [FromBody]DrinkModel drink)
+        {
+            try
+            {
+                bool isDeleted = _drinkRepo.Delete(id, drink);
+                if (isDeleted)
+                {
+                    return Ok(isDeleted);
+                }
+                else
+                {
+                    return NotFound("Drinken blev ikke funet");
                 }
             }
             catch (Exception ex)

@@ -51,5 +51,18 @@ namespace DrinksMaskineREST.Repos
             _drinkDbContext.SaveChanges();
             return true;
         }
+
+        public bool Delete(int id, DrinkModel drinkToDelete)
+        {
+            DrinkModel drink = _drinkDbContext.Set<DrinkModel>().Find(id);
+            if (drink == null)
+            {
+                return false;
+            }
+            _drinkDbContext.Remove(drink);
+            _drinkDbContext.SaveChanges();
+            return true;
+            
+        }
     }
 }
