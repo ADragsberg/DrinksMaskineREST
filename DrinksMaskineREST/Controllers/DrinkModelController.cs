@@ -14,6 +14,19 @@ namespace DrinksMaskineREST.Controllers
         {
             _drinkRepo = drinkRepo;
         }
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public ActionResult<List<DrinkModel>> Get()
+        {
+            List<DrinkModel> drinks = new List<DrinkModel>(_drinkRepo.GetAll());
+
+            if (drinks.Count == 0 )
+                return NotFound();
+
+            return Ok(drinks);
+        }
+
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
