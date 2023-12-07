@@ -1,10 +1,12 @@
 ﻿using DrinksMaskineREST.Models;
 using DrinksMaskineREST.Repos;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinksMaskineREST.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowAllPolicy")]
     [ApiController]
     public class DrinkModelController : ControllerBase
     {
