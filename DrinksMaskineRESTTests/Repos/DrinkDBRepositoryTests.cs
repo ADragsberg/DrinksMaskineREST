@@ -55,16 +55,22 @@ namespace DrinksMaskineREST.Repos.Tests
             Id = 1,
             Creator = "V"
         };
-
+        private static bool _useDb = true;
         [ClassInitialize]
         public static void InitOnce(TestContext testContext)
         {
+            if (_useDb)
+            { 
             var optionsBuilder = new DbContextOptionsBuilder<DrinksDBContext>();
             optionsBuilder.UseSqlServer(Secrets.ConnectionString);
             DrinksDBContext _dbContext = new DrinksDBContext(optionsBuilder.Options);
             _dbContext.Database.ExecuteSqlRaw("TRUNCATE TABLE dbo.DrinkModels");
             _repository = new DrinkDBRepository(_dbContext);
-
+            }
+            else
+            {
+                _repository = new DrinkRepository();
+            }
         }
 
         [TestMethod()]
