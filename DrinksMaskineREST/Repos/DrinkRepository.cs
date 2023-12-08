@@ -75,7 +75,7 @@ namespace DrinksMaskineREST.Repos
 
         private int NextId()
         {
-            return _count > 0 ? GetAll().Select(x => x.Id).Max() + 1 : 1;
+            return _count++;
         }
 
         public DrinkModel GetById(int id)
