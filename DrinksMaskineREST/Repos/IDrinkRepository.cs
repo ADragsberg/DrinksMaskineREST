@@ -4,8 +4,9 @@ namespace DrinksMaskineREST.Repos
 {
     public interface IDrinkRepository
     {
-        List<DrinkModel> GetAll();
+        IEnumerable<DrinkModel> GetAll(string? name = null);
         DrinkModel GetById(int id);
+
         DrinkModel Add(DrinkModel drink);
         bool Update(int id, DrinkModel drink);
 

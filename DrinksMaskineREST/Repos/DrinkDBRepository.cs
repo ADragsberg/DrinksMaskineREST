@@ -5,8 +5,8 @@ namespace DrinksMaskineREST.Repos
 {
     public class DrinkDBRepository : IDrinkRepository
     {
-        private DbContext _drinkDbContext;
-        public DrinkDBRepository(DbContext dbContext)
+        private DrinksDBContext _drinkDbContext;
+        public DrinkDBRepository(DrinksDBContext dbContext)
         {
             _drinkDbContext = dbContext;
         }
@@ -59,10 +59,15 @@ namespace DrinksMaskineREST.Repos
             
         }
 
-        public List<DrinkModel> GetAll()
+        public IEnumerable<DrinkModel> GetAll(string? name = null)
         {
-            List<DrinkModel> result = new List<DrinkModel>(_drinkDbContext.Set<DrinkModel>());
-            return result;
+            IQueryable<DrinkModel> drinks = _drinkDbContext.DrinkModels.AsQueryable();
+
+            if (name != null)
+                drinks = drinks.Where(d => d.strDrink.Contains(name));
+
+            //List<DrinkModel> result = new List<DrinkModel>(_drinkDbContext.Set<DrinkModel>());
+            return drinks;
 
         }
 

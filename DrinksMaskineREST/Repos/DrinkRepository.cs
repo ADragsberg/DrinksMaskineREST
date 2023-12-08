@@ -24,7 +24,7 @@ namespace DrinksMaskineREST.Repos
             return drink;
         }
 
-        public List<DrinkModel> GetAll()
+        public IEnumerable<DrinkModel> GetAll(string? name = null)
         {
             List<DrinkModel> result = new List<DrinkModel>(_drinks.Values);
             return result;

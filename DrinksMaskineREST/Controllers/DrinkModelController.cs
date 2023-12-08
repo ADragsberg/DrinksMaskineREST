@@ -19,9 +19,9 @@ namespace DrinksMaskineREST.Controllers
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public ActionResult<List<DrinkModel>> Get()
+        public ActionResult<IEnumerable<DrinkModel>> Get(string? name = null)
         {
-            List<DrinkModel> drinks = new List<DrinkModel>(_drinkRepo.GetAll());
+            List<DrinkModel> drinks = new List<DrinkModel>(_drinkRepo.GetAll(name));
 
             if (drinks.Count == 0 )
                 return NotFound();
