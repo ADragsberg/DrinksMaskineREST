@@ -138,6 +138,5 @@ namespace DrinksMaskineREST.Models
             if (strDrink.Trim().Length > 64)
                 throw new Exception("strDrink is more than 64 characters");
         }
-
     }
 }
