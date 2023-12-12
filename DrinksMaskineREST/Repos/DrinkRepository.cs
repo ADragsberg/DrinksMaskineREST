@@ -9,9 +9,7 @@ namespace DrinksMaskineREST.Repos
         private int _count = 1;
         public DrinkRepository() 
         {
-
-            // hardcoded data
-
+                        // hardcoded data
         }
 
 
