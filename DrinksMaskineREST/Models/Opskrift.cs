@@ -2,34 +2,34 @@
 {
     public class Opskrift
     {
-        public int antalIngs { get; set; }
+        public int AntalIngs { get; set; }
 
-        public Dictionary<string, string> Ingredientser { get; set; }
+        public Dictionary<string, string> Ingredienser { get; set; }
 
         public Opskrift(DrinkModel model)
         {
-            Ingredientser = new Dictionary<string, string>();
-            Ingredientser.Add(model.strIngredient1, model.strMeasure1);
-            Ingredientser.Add(model.strIngredient2, model.strMeasure2);
+            Ingredienser = new Dictionary<string, string>();
+            Ingredienser.Add(model.strIngredient1, model.strMeasure1);
+            Ingredienser.Add(model.strIngredient2, model.strMeasure2);
 
-            if (model.strIngredient3 != null)
+            if (!String.IsNullOrEmpty(model.strIngredient3))
             {
-                Ingredientser.Add(model.strIngredient3, model.strMeasure3);
+                Ingredienser.Add(model.strIngredient3, model.strMeasure3);
             }
-            if (model.strIngredient4 != null)
+            if (!String.IsNullOrEmpty(model.strIngredient4))
             {
-                Ingredientser.Add(model.strIngredient4, model.strMeasure5);
+                Ingredienser.Add(model.strIngredient4, model.strMeasure4);
             }
-            if (model.strIngredient5 != null)
+            if (!String.IsNullOrEmpty(model.strIngredient3))
             {
-                Ingredientser.Add(model.strIngredient5, model.strMeasure5);
+                Ingredienser.Add(model.strIngredient5, model.strMeasure5);
             }
-            if (model.strIngredient6 != null)
+            if (!String.IsNullOrEmpty(model.strIngredient3))
             {
-                Ingredientser.Add(model.strIngredient6, model.strMeasure6);
+                Ingredienser.Add(model.strIngredient6, model.strMeasure6);
             }
 
-            antalIngs = Ingredientser.Count();
+            AntalIngs = Ingredienser.Count();
             
         }
     }
