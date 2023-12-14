@@ -20,11 +20,11 @@
             {
                 Ingredienser.Add(model.strIngredient4, model.strMeasure4);
             }
-            if (!String.IsNullOrEmpty(model.strIngredient3))
+            if (!String.IsNullOrEmpty(model.strIngredient5))
             {
                 Ingredienser.Add(model.strIngredient5, model.strMeasure5);
             }
-            if (!String.IsNullOrEmpty(model.strIngredient3))
+            if (!String.IsNullOrEmpty(model.strIngredient6))
             {
                 Ingredienser.Add(model.strIngredient6, model.strMeasure6);
             }
